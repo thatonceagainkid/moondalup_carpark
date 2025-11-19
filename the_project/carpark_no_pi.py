@@ -22,7 +22,7 @@ from carpark_display import read_temperature   # Reuse your display.py function
 
 def load_carpark_manager():
     possible_files = [
-        "moondalup.json",        # Your preferred config name
+        "moondalup_carpark\\the_project\\moondalup.json",        # Your preferred config name
         "config.json",           # Default from earlier
         "settings.json"          # Extra backup
     ]
