@@ -25,7 +25,7 @@ def write_log_to_file(message, filename="carpark_log.txt"):
     with open(log_path, "a") as f:
         f.write(f"{timestamp}  {message}\n")
 
-    print(f"[LOG SAVED] {log_path}")  # ← lets you know where it went
+    print(f"[LOG SAVED] {log_path}")
 # ---------------- CONFIG AUTO-DETECTION ---------------- #
 
 def load_carpark_manager():
@@ -74,16 +74,16 @@ class GUISensorConnector:
         self.exit = ExitSensor(callback=manager.handle_exit)
 
     def incoming_car(self, plate):
-        self.entry.detect(plate)               # original
+        self.entry.detect(plate)               
         message = f"[IN]  {plate}"
-        self.update_log(message)               # original
-        write_log_to_file(message)             # <-- NEW
+        self.update_log(message)               
+        write_log_to_file(message)             
 
     def outgoing_car(self, plate):
-        self.exit.detect(plate)                # original
+        self.exit.detect(plate)                
         message = f"[OUT] {plate}"
-        self.update_log(message)               # original
-        write_log_to_file(message)             # <-- NEW
+        self.update_log(message)               
+        write_log_to_file(message)             
 
     def _refresh(self, log_message):
         self.update_display()
@@ -208,7 +208,7 @@ def start_gui():
 
     connector = GUISensorConnector(
         manager,
-        provider,              # ← add this
+        provider,             
         update_display=display.refresh,
         update_log=log_win.write,
         update_parked=parked_win.refresh
